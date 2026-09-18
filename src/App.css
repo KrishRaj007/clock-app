@@ -1,0 +1,264 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ── Tab Bar ─────────────────────────────────────── */
+.tab-bar {
+  display: flex;
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 4px;
+  gap: 4px;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 10px 0;
+  border: none;
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--text-muted);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s;
+}
+
+.tab-btn:hover {
+  color: var(--text);
+}
+
+.tab-btn.active {
+  background: var(--primary);
+  color: var(--bg);
+}
+
+/* ── Panel Container ─────────────────────────────── */
+.panel {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  min-height: 340px;
+}
+
+/* ── Clock ────────────────────────────────────────── */
+.clock-time {
+  font-size: 56px;
+  font-weight: 700;
+  letter-spacing: -2px;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+.clock-seconds {
+  font-size: 32px;
+  font-weight: 400;
+  color: var(--primary);
+}
+
+.clock-period {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-left: 8px;
+}
+
+.clock-date {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+/* ── Stopwatch ────────────────────────────────────── */
+.sw-display {
+  font-size: 52px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  font-variant-numeric: tabular-nums;
+  color: var(--text);
+}
+
+.sw-ms {
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--secondary);
+}
+
+.btn-row {
+  display: flex;
+  gap: 12px;
+}
+
+.btn {
+  padding: 10px 28px;
+  border: none;
+  border-radius: var(--radius);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.15s;
+}
+
+.btn:active {
+  transform: scale(0.96);
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: var(--bg);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-muted);
+}
+
+.btn-danger {
+  background: var(--danger);
+  color: var(--text);
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.laps {
+  width: 100%;
+  max-height: 160px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.laps::-webkit-scrollbar {
+  width: 4px;
+}
+
+.laps::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 2px;
+}
+
+.lap-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: var(--radius);
+  font-variant-numeric: tabular-nums;
+}
+
+.lap-item span:first-child {
+  color: var(--secondary);
+}
+
+/* ── Timer ────────────────────────────────────────── */
+.timer-display {
+  font-size: 52px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  font-variant-numeric: tabular-nums;
+  color: var(--text);
+}
+
+.timer-display.warning {
+  color: var(--danger);
+  animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.timer-inputs {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.time-input-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.time-input-group label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+}
+
+.time-input {
+  width: 72px;
+  padding: 10px 0;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.time-input:focus {
+  border-color: var(--primary);
+}
+
+.time-separator {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-muted);
+  padding-top: 18px;
+}
+
+/* ── Ring Progress ────────────────────────────────── */
+.ring-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ring-svg {
+  transform: rotate(-90deg);
+}
+
+.ring-bg {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.06);
+}
+
+.ring-fg {
+  fill: none;
+  stroke: var(--primary);
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.3s linear;
+}
+
+.ring-content {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
